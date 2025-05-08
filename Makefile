@@ -1,0 +1,45 @@
+ROOT_DIR=$(realpath $(dir $(lastword $(MAKEFILE_LIST))))
+PETALINUX_PROJ_NAME=zedboard-plnx
+ABS_SW_PATH=$(ROOT_DIR)/$(PETALINUX_PROJ_NAME)
+PETALINUX_DIR=$(ABS_SW_PATH)
+PETALINUX_CONFIG=$(PETALINUX_DIR)/project-spec/configs/config
+PETALINUX_ROOTFS_CONFIG=$(PETALINUX_DIR)/project-spec/configs/rootfs_config
+PETALINUX_BSP=$(ROOT_DIR)/avnet-digilent-zedboard-v2021.2-final.bsp
+
+
+.PHONY: hardware, software, clean, all
+
+
+all: hardware ${PETALINUX_DIR}
+
+${PETALINUX_DIR}: software
+
+software: petalinux_proj petalinux_build 
+
+hardware: systemz_wrapper.xsa
+
+
+update_config:
+	cat $(ROOT_DIR)/config > $(PETALINUX_CONFIG)
+
+update_rootfs_config:
+	cp -r $(ROOT_DIR)/meta-user/* $(PETALINUX_DIR)/project-spec/meta-user
+	cat $(ROOT_DIR)/rootfs_config > $(PETALINUX_ROOTFS_CONFIG)
+
+petalinux_proj:
+	mkdir -p $(ROOT_DIR);cd $(ROOT_DIR); petalinux-create -t project -s $(PETALINUX_BSP) --force -n $(PETALINUX_PROJ_NAME)
+	$(MAKE) -f $(lastword $(MAKEFILE_LIST)) update_config
+	rm $(PETALINUX_DIR)/project-spec/configs/*.old || true; petalinux-config -p $(PETALINUX_DIR) --get-hw-description=$(ROOT_DIR) --silentconfig
+	$(MAKE) -f $(lastword $(MAKEFILE_LIST)) update_rootfs_config
+	rm $(PETALINUX_DIR)/project-spec/configs/*.old || true; petalinux-config -p $(PETALINUX_DIR) --silentconfig
+
+petalinux_build: 
+	petalinux-build -c kernel -p ${PETALINUX_DIR}
+	petalinux-build -p $(PETALINUX_DIR)
+	cd $(PETALINUX_DIR) && petalinux-package --boot --u-boot --force
+
+
+clean:
+	rm -rf ${PETALINUX_DIR}
+
+

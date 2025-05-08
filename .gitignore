@@ -1,2 +1,4 @@
 system.tcl
 *.xsa
+*.bsp
+zedboard-plnx
