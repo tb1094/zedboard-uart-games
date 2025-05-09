@@ -20,11 +20,11 @@ hardware: systemz_wrapper.xsa
 
 
 update_config:
-	cat $(ROOT_DIR)/config > $(PETALINUX_CONFIG)
+	cat $(ROOT_DIR)/adz-project-spec/config > $(PETALINUX_CONFIG)
 
 update_rootfs_config:
-	cp -r $(ROOT_DIR)/meta-user/* $(PETALINUX_DIR)/project-spec/meta-user
-	cat $(ROOT_DIR)/rootfs_config > $(PETALINUX_ROOTFS_CONFIG)
+	cp -r $(ROOT_DIR)/adz-project-spec/meta-user/* $(PETALINUX_DIR)/project-spec/meta-user
+	cat $(ROOT_DIR)/adz-project-spec/rootfs_config > $(PETALINUX_ROOTFS_CONFIG)
 
 petalinux_proj:
 	mkdir -p $(ROOT_DIR);cd $(ROOT_DIR); petalinux-create -t project -s $(PETALINUX_BSP) --force -n $(PETALINUX_PROJ_NAME)
@@ -36,7 +36,7 @@ petalinux_proj:
 petalinux_build: 
 	petalinux-build -c kernel -p ${PETALINUX_DIR}
 	petalinux-build -p $(PETALINUX_DIR)
-	cd $(PETALINUX_DIR) && petalinux-package --boot --u-boot --force
+	cd $(PETALINUX_DIR)/images/linux && petalinux-package --boot --fsbl zynq_fsbl.elf --fpga system.bit --u-boot u-boot.elf --force
 
 
 clean:
