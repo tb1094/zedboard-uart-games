@@ -3974,6 +3974,7 @@ CONFIG_auto-login=y
 #
 # CONFIG_gpio-demo is not set
 # CONFIG_peekpoke is not set
+CONFIG_myuart-app=y
 
 #
 # modules 
