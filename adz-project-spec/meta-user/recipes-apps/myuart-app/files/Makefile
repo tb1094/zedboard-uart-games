@@ -7,10 +7,10 @@ CFLAGS = -Wall -O2
 all: myuart_run gameselection
 
 myuart_run: myuart_run.c
-	$(CC) $(CFLAGS) -o $@ $<
+	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)
 
 gameselection: gameselection.c
-	$(CC) $(CFLAGS) -o $@ $< -lncurses
+	$(CC) $(CFLAGS) -o $@ $< -lncurses $(LDFLAGS)
 
 run: myuart_run gameselection
 	./myuart_run ./gameselection

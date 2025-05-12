@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# Source function library.
+. /etc/init.d/functions
+
+start() {
+    echo "setting up vt100-patched terminfo..." >> /home/root/startup.log
+    tic -x /home/root/vt100-patched.src >> /home/root/startup.log 2>&1
+    echo "launching gameselection on /dev/myuart in the background..." >> /home/root/startup.log
+    /usr/bin/myuart_run /usr/bin/gameselection &
+}
+
+stop() {
+    continue
+}
+
+case "$1" in 
+    start)
+       start
+       ;;
+    stop)
+       stop
+       ;;
+    restart)
+       stop
+       start
+       ;;
+    status)
+       ;;
+    *)
+       echo "Usage: $0 {start|stop|status|restart}"
+esac
+
+exit 0
+

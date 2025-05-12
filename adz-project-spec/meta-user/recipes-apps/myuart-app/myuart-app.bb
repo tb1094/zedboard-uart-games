@@ -5,20 +5,24 @@
 
 SUMMARY = "myuart application for games"
 SECTION = "PETALINUX/apps"
-LICENSE = "GPL-3.0"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-3.0;md5=c79ff39f19dfec6d293b95dea7b07891"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 SRC_URI = "file://myuart_run.c \
            file://gameselection.c \
            file://Makefile \
         "
 S = "${WORKDIR}"
-CFLAGS_prepend = "-I ${S}/include"
+
+DEPENDS += "ncurses"
+RDEPENDS_${PN} += "ncurses"
+
 do_compile() {
-        oe_runmake
+    oe_runmake
 }
 do_install() {
-        install -d ${D}${bindir}
-        install -m 0755 ${S}/myuart-app ${D}${bindir}
-
+    install -d ${D}${bindir}
+    install -m 0755 ${S}/myuart_run ${D}${bindir}
+    install -m 0755 ${S}/gameselection ${D}${bindir}
 }
+FILES_${PN} += "${bindir}/myuart_run ${bindir}/gameselection"
 
