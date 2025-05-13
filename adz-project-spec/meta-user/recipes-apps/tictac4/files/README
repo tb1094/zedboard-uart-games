@@ -1,0 +1,30 @@
+tic tac 4 - tic tac toe on 4x4 field
+
+	Copyright (C) 1999 Niklas Olmes <tux.the.penguin@gmx.de>
+	http://user.exit.de/nolmes/
+
+The program is self-explaining, simply execute 'make' to build tictac4 
+and execute ./tictac4.
+
+To quit the game, type q and press enter.
+
+See TODO List on top of main.c for planned features.
+Help is always welcome. Contact me via email.
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+    The file COPYING contains the entire General Public License.
+
+$Id: README,v 1.2 1999/10/13 19:26:18 nik Exp nik $

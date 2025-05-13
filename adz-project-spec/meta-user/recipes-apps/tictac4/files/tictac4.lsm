@@ -1,0 +1,13 @@
+Begin3
+Title:			TicTac4
+Version:		1.0
+Entered-date:		10/13/1999
+Description:		Tic Tac 4 is a curses tic tac toe game with a 4x4 field.
+Keywords:		strategy tictactoe connect4 game curses ncurses wargames			noughts crosses
+Author:			tux.the.penguin@gmx.de (Niklas Olmes)
+Maintained-by:		tux.the.penguin@gmx.de (Niklas Olmes)
+Primary-site:		http://user.exit.de/nolmes/
+Alternate-site:		
+Platforms:		Linux, Unix, curses
+Copying-policy:		GPL
+End

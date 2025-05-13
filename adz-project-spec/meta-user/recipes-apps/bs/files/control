@@ -1,0 +1,25 @@
+# This is not a real Debian control file
+# It's project metadata for the shipper tool
+#
+# SPDX-License-Identifier: BSD-2-Clause
+# SPDX-FileCopyrightText: (C) Eric S. Raymond <esr@thyrsus.com>
+
+Package: bs
+
+Description: The classic game of Battleships against the computer.
+ Uses character-cell graphics with a visual point-and-shoot interface.
+ If you're using an xterm under Linux the mouse will work.
+
+Homepage: http://www.catb.org/~esr/bs
+
+XBS-HTML-Target: index.html
+
+XBS-Repository-URL: https://gitlab.com/esr/bs
+
+XBS-OpenHub-URL: https://www.ohloh.net/p/battleship-classic
+
+XBS-Logo: battleship.png 
+
+#XBS-Project-Tags: Games/Entertainment
+
+XBS-VC-Tag-Template: %(version)s

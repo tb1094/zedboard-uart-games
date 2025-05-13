@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Battleships
+GenericName=BattleShip game
+Comment=Battleships solitaire game with a color interface
+Exec=bs
+Icon=battleship
+Categories=Game;StrategyGame;
+Type=Application
+Terminal=true

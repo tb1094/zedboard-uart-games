@@ -1,0 +1,10 @@
+= GALAXIS for UNIX
+
+This directory contains the source for a UNIX-hosted, curses-based clone of the
+nifty little Macintosh freeware game Galaxis.  The code is POSIX-conforming and
+was written under Linux using the ncurses library; it should part readily to
+any modern Unix.
+
+Send bug reports to esr@snark.thyrsus.com.  Also, see my WWW home page
+at http://www.catb.org/~esr/index.html for updates and other resources.
+

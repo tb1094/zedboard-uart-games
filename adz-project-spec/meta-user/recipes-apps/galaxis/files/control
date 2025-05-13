@@ -1,0 +1,24 @@
+# This is not a real Debian control file, though the syntax is compatible.
+# It's project metadata for the shipper tool
+#
+# SPDX-FileCopyrightText: (C) Eric S. Raymond <esr@thyrsus.com>
+# SPDX-License-Identifier: BSD-2-Clause
+
+Package: galaxis
+
+Description: Find the lost lifeboats from an interstellar liner.
+ A curses-based clone of the Macintosh freeware game Galaxis.
+
+Homepage: http://www.catb.org/~esr/galaxis
+
+XBS-HTML-Target: index.html
+
+XBS-Repository-URL: https://gitlab.com/esr/galaxis
+
+#XBS-Destinations: freshcode
+
+XBS-Logo: galaxis.png
+
+#XBS-Project-Tags: game, card, solitaire
+
+XBS-VC-Tag-Template: %(version)s

@@ -30,7 +30,6 @@ const char *aop_levels[] = {
 
 const char *choices[] = {
   "Minesweeper",
-  "nPush",
   "Battleships",
   "Greed",
   "Pong",
@@ -41,12 +40,11 @@ const char *choices[] = {
 };
 
 int main() {
+  nc_setup();
   if (chdir(GAMEDIR) != 0) {
     perror("chdir failed for gamedir");
     return 1;
   }
-
-  nc_setup();
 
   int highlight = 0;
   int choice = -1;
@@ -101,7 +99,7 @@ int main() {
         endwin();
         pid = fork();
         if (pid == 0) { // child process
-          execl("./ncurses-minesweeper/bin/minesweeper", "./ncurses-minesweeper/bin/minesweeper", NULL);
+          execl("./minesweeper", "./minesweeper", NULL);
           perror("execl failed for minesweeper");
           _exit(EXIT_FAILURE);
         } else if (pid > 0) { // parent process
@@ -116,12 +114,8 @@ int main() {
         endwin();
         pid = fork();
         if (pid == 0) { // child process
-          if (chdir("./npush-0.7/") != 0) {
-            perror("chdir failed for npush");
-            return 1;
-          }
-          execl("./npush", "./npush", NULL);
-          perror("execl failed for npush");
+          execl("./bs", "./bs", NULL);
+          perror("execl failed for bs");
           _exit(EXIT_FAILURE);
         } else if (pid > 0) { // parent process
           int status;
@@ -135,8 +129,8 @@ int main() {
         endwin();
         pid = fork();
         if (pid == 0) { // child process
-          execl("./bs-master/bs", "./bs-master/bs", NULL);
-          perror("execl failed for bs");
+          execl("./greed", "./greed", NULL);
+          perror("execl failed for greed");
           _exit(EXIT_FAILURE);
         } else if (pid > 0) { // parent process
           int status;
@@ -150,22 +144,7 @@ int main() {
         endwin();
         pid = fork();
         if (pid == 0) { // child process
-          execl("./greed-4.3/greed", "./greed-4.3/greed", NULL);
-          perror("execl failed for greed");
-          _exit(EXIT_FAILURE);
-        } else if (pid > 0) { // parent process
-          int status;
-          waitpid(pid, &status, 0);
-          nc_setup();
-          clear();
-          refresh();
-        }
-        break;
-      case 4:
-        endwin();
-        pid = fork();
-        if (pid == 0) { // child process
-          execl("./pong-0.1.0/pong", "./pong-0.1.0/pong", NULL);
+          execl("./pong", "./pong", NULL);
           perror("execl failed for pong");
           _exit(EXIT_FAILURE);
         } else if (pid > 0) { // parent process
@@ -176,7 +155,7 @@ int main() {
           refresh();
         }
         break;
-      case 5:
+      case 4:
         c = popup("Enter number to select level: 1-9");
         value = c - '0';
         if (value < 1 || value > 11) {
@@ -186,10 +165,6 @@ int main() {
         endwin();
         pid = fork();
         if (pid == 0) { // child process
-          if (chdir("./aop-0.6/") != 0) {
-            perror("chdir failed for aop");
-            return 1;
-          }
           execl("./aop", "./aop", aop_levels[value], NULL);
           perror("execl failed for aop");
           _exit(EXIT_FAILURE);
@@ -201,11 +176,11 @@ int main() {
           refresh();
         }
         break;
-      case 6:
+      case 5:
         endwin();
         pid = fork();
         if (pid == 0) { // child process
-          execl("./galaxis-1.11/galaxis", "./galaxis-1.11/galaxis", NULL);
+          execl("./galaxis", "./galaxis", NULL);
           perror("execl failed for galaxis");
           _exit(EXIT_FAILURE);
         } else if (pid > 0) { // parent process
@@ -216,7 +191,7 @@ int main() {
           refresh();
         }
         break;
-      case 7:
+      case 6:
         endwin();
         pid = fork();
         if (pid == 0) { // child process
@@ -231,11 +206,11 @@ int main() {
           refresh();
         }
         break;
-      case 8:
+      case 7:
         endwin();
         pid = fork();
         if (pid == 0) { // child process
-          execl("./tictac4-1.0/tictac4", "./tictac4-1.0/tictac4", NULL);
+          execl("./tictac4", "./tictac4", NULL);
           perror("execl failed for tictac4");
           _exit(EXIT_FAILURE);
         } else if (pid > 0) { // parent process

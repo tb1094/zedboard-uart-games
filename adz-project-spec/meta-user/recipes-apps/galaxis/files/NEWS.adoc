@@ -1,0 +1,38 @@
+= galaxis project news =
+
+1.11: 2024-02-08::
+   Clean up code to assume SUSv2
+   Documentation moved to asciidoctor.
+
+1.10: 2019-06-12::
+   Rehosted on GitLab
+   Fully converted to new shipper-based packaging.
+   C declaration cleanup.  Passes cppcheck auditing.
+   Project logo added.
+
+1.9: 2010-10-18::
+   Add a desktop file.  Port fix from the BSD maintainer
+
+1.8: 2010-10-18::
+   Full ANSIfication.  License changed to BSD.
+
+1.7: 2003-12-29::
+   Mac OSX port fix. 
+
+1.6: 2003-12-26::
+   Cleanup fixes to RPM packaging machinery.
+
+1.5: 2003-12-15::
+   Minor bug fix from James Hiller.
+
+1.4: 2002-07-30::
+   Moved documentation to XML.
+
+1.3: 2002-04-20::
+   Applied James Hiller's fix for multiple-reprobe bug.
+
+1.2: 2000-07-28::
+   Update to modern RPM tools.
+
+1.1: 1994-10-23::
+   Original release.

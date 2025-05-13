@@ -1,0 +1,38 @@
+				BS 2.0
+
+Battleships is an intrinsically silly game, but I couldn't resist fixing this
+sucker. It now has a purely visual interface (you place ships and call for
+shots by moving the cursor around the board using the standard yuhjklbn keys).
+
+The default game now disallows placement of ships so that they touch. A new
+-c option is available to force the older behavior.
+
+I also removed the `seemiss' option (now always on) and `ask' (which is only
+useful for cheating). And I ifdefed out the ditsy opening screen; if you want
+it back, compile with -DPENGUIN. One strike against featureitis...
+
+This was probably a waste of a day or so. But what the hack -- rewriting the
+strategy robot as an FSM was fun, and maybe the interface will set a good
+example for the next guy.
+
+<*** FLAME ON ***>
+
+People who write curses games that require you to enter #@!!#$! coordinates
+rather than doing the natural pick-and-place with cursor motions should be
+stuffed in suits and condemned to write COBOL for the rest of their days...
+
+<*** FLAME OFF ***>
+
+O.K., I feel better now that I've got that off my chest...
+
+November 1993: I've added function key support, and ANSI/POSIXized the code.
+
+December 2012: This is ancient code now, mainly interesting as a
+historical document of what primitive computer games looked like in
+the 1980s - it dates from 1986, I rewrote it in 1989.  The PNG icon in
+the distribution is much later; thanks to Tor Gjerde who seems to have
+built it for use with FVWM.
+
+					Eric S. Raymond
+					esr@snark.thyrsus.com
+				(WWW: http://www.catb.org/~esr/)

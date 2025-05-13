@@ -3977,6 +3977,13 @@ CONFIG_gpio-demo=y
 CONFIG_myuart-app=y
 CONFIG_startup=y
 CONFIG_msnake=y
+CONFIG_greed=y
+CONFIG_aop=y
+CONFIG_ncurses-minesweeper=y
+CONFIG_tictac4=y
+CONFIG_pong=y
+CONFIG_bs=y
+CONFIG_galaxis=y
 
 #
 # modules 
