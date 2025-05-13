@@ -27,7 +27,7 @@ update_rootfs_config:
 	cat $(ROOT_DIR)/adz-project-spec/rootfs_config > $(PETALINUX_ROOTFS_CONFIG)
 
 petalinux_proj:
-	mkdir -p $(ROOT_DIR);cd $(ROOT_DIR); petalinux-create -t project -s $(PETALINUX_BSP) --force -n $(PETALINUX_PROJ_NAME)
+	mkdir -p $(ROOT_DIR);cd $(ROOT_DIR); petalinux-create -t project --template zynq --force -n $(PETALINUX_PROJ_NAME)
 	petalinux-config -p $(PETALINUX_DIR) --get-hw-description=$(ROOT_DIR) --silentconfig
 	$(MAKE) -f $(lastword $(MAKEFILE_LIST)) update_config
 	#rm $(PETALINUX_DIR)/project-spec/configs/*.old || true; petalinux-config -p $(PETALINUX_DIR) --get-hw-description=$(ROOT_DIR) --silentconfig

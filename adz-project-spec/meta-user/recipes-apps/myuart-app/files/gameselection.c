@@ -220,7 +220,7 @@ int main() {
         endwin();
         pid = fork();
         if (pid == 0) { // child process
-          execl("./msnake/src/snake", "./msnake/src/snake", NULL);
+          execl("./snake", "./snake", NULL);
           perror("execl failed for msnake");
           _exit(EXIT_FAILURE);
         } else if (pid > 0) { // parent process
