@@ -1,7 +1,3 @@
-CC = gcc
-CFLAGS = -Wall -O2
-
-.PHONY: all clean
 
 # Targets
 all: myuart_run gameselection
