@@ -4,7 +4,6 @@ ABS_SW_PATH=$(ROOT_DIR)/$(PETALINUX_PROJ_NAME)
 PETALINUX_DIR=$(ABS_SW_PATH)
 PETALINUX_CONFIG=$(PETALINUX_DIR)/project-spec/configs/config
 PETALINUX_ROOTFS_CONFIG=$(PETALINUX_DIR)/project-spec/configs/rootfs_config
-PETALINUX_BSP=$(ROOT_DIR)/avnet-digilent-zedboard-v2021.2-final.bsp
 $(info ROOT_DIR is: $(ROOT_DIR))
 
 .PHONY: hardware, software, clean, all
@@ -30,9 +29,7 @@ petalinux_proj:
 	mkdir -p $(ROOT_DIR);cd $(ROOT_DIR); petalinux-create -t project --template zynq --force -n $(PETALINUX_PROJ_NAME)
 	petalinux-config -p $(PETALINUX_DIR) --get-hw-description=$(ROOT_DIR) --silentconfig
 	$(MAKE) -f $(lastword $(MAKEFILE_LIST)) update_config
-	#rm $(PETALINUX_DIR)/project-spec/configs/*.old || true; petalinux-config -p $(PETALINUX_DIR) --get-hw-description=$(ROOT_DIR) --silentconfig
 	$(MAKE) -f $(lastword $(MAKEFILE_LIST)) update_rootfs_config
-	#rm $(PETALINUX_DIR)/project-spec/configs/*.old || true; petalinux-config -p $(PETALINUX_DIR) --silentconfig
 
 petalinux_build: 
 	petalinux-build -c kernel -p ${PETALINUX_DIR}
