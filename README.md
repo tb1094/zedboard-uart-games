@@ -1,6 +1,6 @@
 # Zedboard UART games
 
-This is a PetaLinux project for the Zedboard with a custom UART module running on the Zynq PL (FPGA), controlled by the Zynq PS (ARM CPU) via AXI4. It includes a Linux driver for the UART at /dev/myuart and a collection of ncurses games customized to run on a hardware terminal VT510 (running on VT100 emulation mode).
+This is a PetaLinux project for the Zedboard with a custom UART module running on the Zynq PL (FPGA), controlled by the Zynq PS (ARM CPU) via AXI4. It includes a Linux driver for the UART at /dev/myuart and a collection of open source ncurses games customized to run on a hardware terminal VT510 (running on VT100 emulation mode).
 
 The custom UART module runs at 19200 baud rate, with 1 stop bit and no parity bits. Its RX line is at JA1 and its TX line is at JA7.
 
